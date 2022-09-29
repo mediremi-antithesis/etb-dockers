@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # build the base-images (note not needed since they pull from z3nchada/<>) uncomment to update them.
 
 cd base-images
@@ -20,3 +22,5 @@ echo "Building consensus-clients"
 cd ../etb-clients
 echo "Building the etb-clients"
 ./build_dockers.sh
+
+echo "Done. Now upload the image to the registry"

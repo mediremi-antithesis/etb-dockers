@@ -1,4 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-BUILDKIT=1 docker build --no-cache -t etb-client-builder -f etb-client-builder.Dockerfile .
-BUILDKIT=1 docker build --no-cache -t etb-client-runner -f etb-client-runner.Dockerfile .
+buildah bud --registries-conf=registries.conf -f "etb-client-builder.Dockerfile" -t "etb-client-builder" --format docker
+podman tag localhost/etb-client-builder:latest docker.io/z3nchada/etb-client-builder:latest
+
+buildah bud --registries-conf=registries.conf -f "etb-client-runner.Dockerfile" -t "etb-client-runner" --format docker
+podman tag localhost/etb-client-runner:latest docker.io/z3nchada/etb-client-runner:latest
