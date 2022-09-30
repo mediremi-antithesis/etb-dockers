@@ -6,7 +6,8 @@ WORKDIR /usr/src
 
 from base as builder
 
-ARG GIT_BRANCH="main"
+# ARG GIT_BRANCH="main"
+ARG GIT_BRANCH="963da3d7ac99b85b7e928177ad0bc0cefc9eba58"
 
 RUN git clone --progress https://github.com/hyperledger/besu.git && cd besu && git checkout ${GIT_BRANCH} && ./gradlew installDist
 
